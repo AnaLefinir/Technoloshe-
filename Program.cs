@@ -26,11 +26,11 @@ namespace Technoloshe
                 }
 
             }
-
+            
             if (concursantes.Count > 0)
             {
                 ganador = r.Next(concursantes.Count);
-                Console.WriteLine("El ganador es " + concursantes[ganador]+1);
+                Console.WriteLine("El ganador es " + concursantes[ganador]);
             }
             else
             {
