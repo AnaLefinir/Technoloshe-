@@ -19,7 +19,7 @@ namespace Technoloshe
             {
                 Console.WriteLine("Ingrese el nombre completo del concursante");
                 concursante = Console.ReadLine();
-                
+
                 if (int.TryParse(concursante, out flag) != true)
                 {
                     concursantes.Add(concursante);
@@ -30,7 +30,7 @@ namespace Technoloshe
             if (concursantes.Count > 0)
             {
                 ganador = r.Next(concursantes.Count);
-                Console.WriteLine("El ganador es " + concursantes[ganador]);
+                Console.WriteLine("El ganador es " + concursantes[ganador]+1);
             }
             else
             {
