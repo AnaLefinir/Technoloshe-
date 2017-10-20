@@ -27,6 +27,12 @@ namespace Technoloshe
 
             }
 
+            Console.WriteLine("Los concursantes son: ");
+            
+            for(int i = 0; i < concursantes.Count; i++){
+                Console.WriteLine(concursantes[i]);
+            }
+
             if (concursantes.Count > 0)
             {
                 ganador = r.Next(concursantes.Count);
