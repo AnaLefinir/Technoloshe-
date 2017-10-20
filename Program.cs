@@ -19,20 +19,20 @@ namespace Technoloshe
                 int flag = 1;
                 bool isInt;
                 bool isWhiteSpace;
-                bool isGoOut;
+                bool shouldExit;
 
                 Console.Write("Ingrese el nombre completo del concursante: ");
                 contestant = Console.ReadLine();
 
-                isGoOut = string.IsNullOrEmpty(contestant);
+                shouldExit = string.IsNullOrEmpty(contestant);
                 isInt = int.TryParse(contestant, out flag);
                 isWhiteSpace = string.IsNullOrWhiteSpace(contestant);
 
-                if (isGoOut)
+                if (shouldExit)
                 {
                     break;
                 }
-                else if (isWhiteSpace | isInt)
+                else if (isWhiteSpace || isInt)
                 {
                     Console.WriteLine("Nombre Inválido");
                     continue;
