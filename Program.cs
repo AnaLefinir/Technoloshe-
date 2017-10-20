@@ -7,36 +7,53 @@ namespace Technoloshe
     {
         static void Main(string[] args)
         {
-            List<string> concursantes = new List<string>();
-            int flag = 1;
-            string concursante;
-            int ganador;
+            List<string> contestants = new List<string>();
+            int idWinner;
             Random r = new Random();
 
-            Console.WriteLine("Ingrese -1 cuando haya terminado de cargar a los concursantes");
+            Console.WriteLine("Aprete <enter> cuando haya terminado de cargar a los concursantes");
 
-            while (flag != -1)
+            while (true)
             {
-                Console.WriteLine("Ingrese el nombre completo del concursante");
-                concursante = Console.ReadLine();
+                string contestant;
+                int flag = 1;
+                bool isInt;
+                bool isWhiteSpace;
+                bool isGoOut;
 
-                if (int.TryParse(concursante, out flag) != true)
+                Console.Write("Ingrese el nombre completo del concursante: ");
+                contestant = Console.ReadLine();
+
+                isGoOut = string.IsNullOrEmpty(contestant);
+                isInt = int.TryParse(contestant, out flag);
+                isWhiteSpace = string.IsNullOrWhiteSpace(contestant);
+
+                if (isGoOut)
                 {
-                    concursantes.Add(concursante);
+                    break;
+                }
+                else if (isWhiteSpace | isInt)
+                {
+                    Console.WriteLine("Nombre Inválido");
+                    continue;
+                }
+                else
+                {
+                    contestants.Add(contestant);
+                }
+            }
+
+            if (contestants.Count > 0)
+            {
+                Console.WriteLine("Los concursantes son: ");
+
+                foreach (string Name in contestants)
+                {
+                    Console.WriteLine(Name);
                 }
 
-            }
-
-            Console.WriteLine("Los concursantes son: ");
-            
-            for(int i = 0; i < concursantes.Count; i++){
-                Console.WriteLine(concursantes[i]);
-            }
-
-            if (concursantes.Count > 0)
-            {
-                ganador = r.Next(concursantes.Count);
-                Console.WriteLine("El ganador o ganadora es " + concursantes[ganador]);
+                idWinner = r.Next(contestants.Count);
+                Console.WriteLine("El ganador o ganadora es: " + contestants[idWinner] + "!");
             }
             else
             {
